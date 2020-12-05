@@ -3,6 +3,7 @@
 Created on Mon Nov 30 17:27:14 2020
 
 @author: Anish Parulekar
+Template inspiration: @krishnaik - github
 """
 
 from flask import Flask, render_template, request
@@ -33,9 +34,12 @@ def predict():
         if(Fuel_Type_Petrol=='Petrol'):
                 Fuel_Type_Petrol=1
                 Fuel_Type_Diesel=0
-        else:
+        elif(Fuel_Type_Petrol == 'Diesel'):
             Fuel_Type_Petrol=0
             Fuel_Type_Diesel=1
+        else:
+            Fuel_Type_Diesel = 0
+            Fuel_Type_Petrol =  0
         Age=2020-Year
         Seller_Type_Individual=request.form['Seller_Type_Individual']
         if(Seller_Type_Individual=='Individual'):
